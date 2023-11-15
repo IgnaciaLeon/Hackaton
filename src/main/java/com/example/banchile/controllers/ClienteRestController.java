@@ -30,6 +30,7 @@ public class ClienteRestController {
 
     @GetMapping("/{rut}") //localhost:8080/cliente/10.123.123-1
     public Cliente obtenerClientePorRut(@PathVariable String rut) {
+
         return clienteRepository.findByRut(rut);
     }
 
