@@ -16,7 +16,7 @@ public class CuentaRestController {
     @Autowired
     CuentaServiceImpl cuentaService;
 
-    @GetMapping("/listaCuentas")
+    @GetMapping("/lista") //localhost:8080/cuenta/lista
     public List<Cuenta> listaCuenta() {
         return  cuentaService.listaCuenta();
     }

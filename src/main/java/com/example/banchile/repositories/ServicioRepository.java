@@ -11,7 +11,11 @@ import java.util.List;
 public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
     //Query  para ordenar monto de menor a mayor
-    @Query(value = "select * from servicio order by comentario.monto_descuento ASC ", nativeQuery= true)
+
+    //@Query(value = "select * from servicio order by comentario.monto_descuento ASC ", nativeQuery= true)
+   // List<Servicio> orderByAmount();
+
+    @Query("SELECT s FROM Servicio s ORDER BY s.montoDescuento ASC")
     List<Servicio> orderByAmount();
 
     //Query para sumar todos los montos de los registros seleccionados después de pasar por los filtros rut, fecha y tipo de producto

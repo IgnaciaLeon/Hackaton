@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @Transactional
 public class CuentaServiceImpl implements CuentaService{
@@ -15,6 +16,8 @@ public class CuentaServiceImpl implements CuentaService{
     CuentaRepository cuentaRepository;
 
     @Override
-    public List<Cuenta> listaCuenta() { return cuentaRepository.findAll(); }
+    public List<Cuenta> listaCuenta() {
+        return cuentaRepository.findAll();
+    }
 
 }

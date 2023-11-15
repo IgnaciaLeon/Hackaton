@@ -20,13 +20,6 @@ public class ClienteRestController {
     @Autowired
     ClienteRepository clienteRepository;
 
-    /*@GetMapping("/rut")
-    public Cliente buscarPorRut() {
-        Cliente buscarClientePorRut = clienteService.buscarPorRut(buscarPorRut().getClienteRut());
-        return buscarClientePorRut;
-    }
-
-     */
 
     @GetMapping("/{rut}") //localhost:8080/cliente/10.123.123-1
     public Cliente obtenerClientePorRut(@PathVariable String rut) {

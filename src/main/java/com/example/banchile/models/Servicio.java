@@ -28,6 +28,7 @@ public class Servicio {
     private Long codigoServicio_id;
 
     @Column(name = "fecha_contratacion")
+    @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @NotNull
     private Date fechaContratacion;
