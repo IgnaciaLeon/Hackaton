@@ -6,6 +6,7 @@ import com.example.banchile.repositories.ServicioRepository;
 import com.example.banchile.services.ClienteServiceImpl;
 import com.example.banchile.services.ServicioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,10 +33,10 @@ public class ServicioRestController {
 
 
     //REVISAR ESTA QUERY
-    @GetMapping("/sumar-montos") //localhost:8080/servicio/sumar-montos?rut=19.567.626-7
+    @GetMapping("/sumar-montos") //localhost:8080/servicio/sumar-montos?rut=19.567.626-7&fecha=2023-11-15&nombreProducto=APV
     public Integer sumarMontosDeDescuentoFiltrados(
             @RequestParam String rut,
-            @RequestParam Date fecha,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date fecha,
             @RequestParam String nombreProducto) {
         return servicioService.sumarMontosDeDescuentoFiltrados(rut, fecha, nombreProducto);
     }
@@ -45,9 +46,8 @@ public class ServicioRestController {
         return servicioService.orderByAmount();
     }
 
-    //REVISAR ESTA QUERY [DATO AL BUSCARLO]
     @GetMapping("/filtrar-por-fecha") //localhost:8080/servicio/filtrar-por-fecha?fechaContratacion=2010-10-09 00:00:00
-    public List<Servicio> findByFechaContratacion(@RequestParam Date fechaContratacion) {
+    public List<Servicio> findByFechaContratacion(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaContratacion) {
         return servicioService.findByFechaContratacion(fechaContratacion);
     }
 

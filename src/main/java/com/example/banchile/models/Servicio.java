@@ -10,7 +10,8 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -28,8 +29,7 @@ public class Servicio {
     private Long codigoServicio_id;
 
     @Column(name = "fecha_contratacion")
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
     private Date fechaContratacion;
 
